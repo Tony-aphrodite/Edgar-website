@@ -17,7 +17,7 @@ export function Logo({
         "group inline-flex items-center gap-2.5 font-semibold tracking-tight",
         className,
       )}
-      aria-label="Edgar Studio — Inicio"
+      aria-label="ServiTec — Inicio"
     >
       <span
         className={cn(
@@ -26,8 +26,8 @@ export function Logo({
         )}
       >
         <svg
-          width="18"
-          height="18"
+          width="20"
+          height="20"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -40,11 +40,14 @@ export function Logo({
               <stop offset="100%" stopColor={invert ? "#ec4899" : "#f0abfc"} />
             </linearGradient>
           </defs>
+          {/* Llave + casa estilizadas: símbolo de servicios a domicilio */}
           <path
-            d="M5 4h14M5 12h10M5 20h14"
+            d="M3 11 L12 4 L21 11 V20 H14 V14 H10 V20 H3 Z"
             stroke="url(#logo-grad)"
-            strokeWidth="2.4"
+            strokeWidth="2"
+            strokeLinejoin="round"
             strokeLinecap="round"
+            fill="none"
           />
         </svg>
         <span className="absolute -inset-px rounded-xl ring-1 ring-white/10" />
@@ -55,9 +58,9 @@ export function Logo({
           invert ? "text-white" : "text-ink-900",
         )}
       >
-        Edgar
-        <span className={cn(invert ? "text-white/50" : "text-ink-400")}>
-          {" Studio"}
+        Servi
+        <span className={cn(invert ? "text-white/60" : "text-ink-400")}>
+          Tec
         </span>
       </span>
     </Link>
