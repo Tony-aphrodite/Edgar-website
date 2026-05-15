@@ -4,65 +4,116 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Política de reembolsos",
-  description: "Política de reembolsos y cancelaciones de Edgar Studio.",
+  description:
+    "Política de cancelaciones y reembolsos de ServiTec: cuándo procede, cómo solicitarlo y plazos de respuesta.",
 };
 
 export default function ReembolsosPage() {
   return (
-    <LegalLayout eyebrow="Legal" title="Política de reembolsos" updated="29 de abril de 2026">
+    <LegalLayout
+      eyebrow="Legal"
+      title="Política de cancelaciones y reembolsos"
+      updated="15 de mayo de 2026"
+    >
       <p>
-        En {site.name} queremos que cada proyecto sea un éxito. Esta política explica cómo manejamos las cancelaciones, reembolsos y disputas.
+        Esta Política describe cuándo procede la cancelación, ajuste o reembolso de un servicio solicitado a través de la Plataforma ServiTec, así como los plazos y mecanismos aplicables. Forma parte integral de los{" "}
+        <a className="font-medium text-ink-900 underline-offset-4 hover:underline" href="/terminos">
+          Términos y condiciones
+        </a>
+        .
       </p>
 
-      <LegalSection title="1. Periodo de garantía">
+      <LegalSection title="1. Antes de aprobar la cotización">
         <p>
-          Durante los primeros 14 días naturales del proyecto, si consideras que el trabajo entregado no cumple con lo acordado en la propuesta inicial y no logramos resolverlo mediante revisiones, puedes solicitar un reembolso parcial proporcional al trabajo no entregado.
+          El Cliente puede cancelar la solicitud o rechazar la cotización en cualquier momento antes de aprobarla, sin costo. Solicitar una cotización es gratuito.
         </p>
       </LegalSection>
 
-      <LegalSection title="2. Trabajo realizado">
+      <LegalSection title="2. Cancelación con cotización aprobada">
         <p>
-          El anticipo del 50% cubre la fase de descubrimiento, estrategia y diseño inicial. Una vez iniciado el trabajo, este monto no es reembolsable, salvo en los casos descritos en la sección anterior.
+          Una vez aprobada la cotización, aplican los siguientes supuestos:
+        </p>
+        <ul className="ml-6 list-disc space-y-1.5">
+          <li>
+            <span className="font-semibold">Más de 24 horas antes de la cita:</span>{" "}
+            cancelación sin costo y reembolso del 100% del monto cobrado.
+          </li>
+          <li>
+            <span className="font-semibold">Entre 24 y 2 horas antes de la cita:</span>{" "}
+            cancelación con cargo del 15% sobre el monto del servicio, para compensar el traslado o materiales reservados por el Técnico.
+          </li>
+          <li>
+            <span className="font-semibold">Menos de 2 horas antes o ya en sitio:</span>{" "}
+            cancelación con cargo de hasta 50% del monto del servicio, salvo causa de fuerza mayor debidamente acreditada.
+          </li>
+        </ul>
+      </LegalSection>
+
+      <LegalSection title="3. Garantía de servicio (24 horas)">
+        <p>
+          Una vez completado el servicio, el Cliente tiene <span className="font-semibold">24 horas</span> para reportar inconformidades desde la app. Nuestro equipo de soporte revisa el caso, contacta al Técnico y, según el resultado de la revisión, puede:
+        </p>
+        <ul className="ml-6 list-disc space-y-1.5">
+          <li>Coordinar una visita correctiva sin costo.</li>
+          <li>Aplicar un ajuste parcial al cobro.</li>
+          <li>Procesar el reembolso total cuando el servicio no se prestó o presenta defectos graves no subsanables.</li>
+        </ul>
+      </LegalSection>
+
+      <LegalSection title="4. Cancelación por parte del Técnico">
+        <p>
+          Si el Técnico cancela una cita confirmada, ServiTec reasigna la solicitud a otro Técnico verificado o, si el Cliente lo prefiere, reembolsa el 100% del monto cobrado. Las cancelaciones reiteradas por parte de un Técnico pueden derivar en la suspensión de su cuenta.
         </p>
       </LegalSection>
 
-      <LegalSection title="3. Cancelación por parte del cliente">
+      <LegalSection title="5. Casos no cubiertos por el reembolso">
         <p>
-          Si decides cancelar el proyecto después de iniciado, te entregaremos todo el trabajo realizado hasta la fecha y emitiremos un cargo proporcional por las horas invertidas, descontando el anticipo correspondiente.
+          No procede reembolso, total ni parcial, en los siguientes supuestos:
         </p>
-      </LegalSection>
-
-      <LegalSection title="4. Cancelación por nuestra parte">
-        <p>
-          Nos reservamos el derecho de cancelar un proyecto si detectamos prácticas contrarias a la ética profesional, contenidos ilegales o falta de colaboración del cliente. En estos casos, reembolsaremos el monto correspondiente al trabajo no realizado.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="5. Servicios mensuales (retainers)">
-        <p>
-          Los servicios contratados bajo modalidad mensual pueden cancelarse con 30 días de aviso previo por escrito. No emitimos reembolsos por meses ya iniciados.
-        </p>
+        <ul className="ml-6 list-disc space-y-1.5">
+          <li>El Cliente no permitió el acceso al inmueble en el horario acordado.</li>
+          <li>La información proporcionada en la solicitud fue significativamente inexacta y obligó a re-cotizar al llegar.</li>
+          <li>Daños o desperfectos previos al servicio, no derivados del trabajo del Técnico.</li>
+          <li>Servicios completados a satisfacción y aprobados por el Cliente en la app sin reporte dentro del plazo de 24 horas.</li>
+        </ul>
       </LegalSection>
 
       <LegalSection title="6. Procesamiento de reembolsos">
         <p>
-          Los reembolsos aprobados se procesan en un plazo de 10 a 15 días hábiles a través del mismo medio de pago utilizado originalmente. Para pagos con tarjeta vía Stripe, los tiempos pueden depender del banco emisor.
+          Los reembolsos aprobados se procesan a través del mismo medio de pago utilizado, vía Stripe. Los tiempos de acreditación dependen del banco emisor del Cliente, y generalmente toman entre 5 y 15 días hábiles.
+        </p>
+        <p>
+          Cuando el reembolso aplica sobre un servicio que ya fue cobrado al Técnico, ServiTec ajustará el saldo del Técnico en su cuenta de Stripe Connect, conforme a los términos de Stripe.
         </p>
       </LegalSection>
 
-      <LegalSection title="7. Cómo solicitar un reembolso">
+      <LegalSection title="7. Reembolsos y CFDI">
         <p>
-          Envía un correo a{" "}
-          <a className="font-medium text-ink-900 underline-offset-4 hover:underline" href={`mailto:${site.email}`}>
-            {site.email}
-          </a>{" "}
-          con el asunto “Solicitud de reembolso”, incluyendo el nombre del proyecto, número de factura y motivo. Responderemos en un máximo de 5 días hábiles.
+          Cuando se haya emitido un CFDI por el servicio, el Técnico deberá emitir el CFDI de egreso (nota de crédito) correspondiente por el monto del reembolso. ServiTec ajustará, en lo conducente, el CFDI por la comisión cobrada.
         </p>
       </LegalSection>
 
-      <LegalSection title="8. Disputas">
+      <LegalSection title="8. Cómo solicitar un reembolso">
         <p>
-          Antes de iniciar cualquier disputa con tu banco o proveedor de pagos, te pedimos contactarnos directamente. Estamos comprometidos a encontrar una solución justa para ambas partes.
+          Para solicitar un reembolso:
+        </p>
+        <ul className="ml-6 list-disc space-y-1.5">
+          <li>Abre el detalle del servicio en la app y selecciona “Reportar problema”.</li>
+          <li>O escribe a{" "}
+            <a className="font-medium text-ink-900 underline-offset-4 hover:underline" href={`mailto:${site.supportEmail}`}>
+              {site.supportEmail}
+            </a>{" "}
+            con el ID del servicio, una descripción y, si es posible, fotos.
+          </li>
+        </ul>
+        <p>
+          Respondemos en un máximo de 5 días hábiles con el resultado de la revisión.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="9. Disputas con el banco emisor">
+        <p>
+          Antes de iniciar un contracargo con tu banco o emisor de la tarjeta, te pedimos contactarnos directamente. Estamos comprometidos a llegar a una solución justa para ambas partes. Los contracargos resueltos en contra de ServiTec pueden derivar en la suspensión temporal del servicio mientras se aclara la situación.
         </p>
       </LegalSection>
     </LegalLayout>
