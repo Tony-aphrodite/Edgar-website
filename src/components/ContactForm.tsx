@@ -7,19 +7,25 @@ import { cn } from "@/lib/utils";
 const inputClasses =
   "block w-full rounded-xl border border-ink-200 bg-white px-4 py-3 text-sm text-ink-900 shadow-soft transition placeholder:text-ink-400 focus:border-ink-900 focus:outline-none focus:ring-2 focus:ring-accent/30";
 
-const services = [
-  "Diseño Web",
-  "Branding",
-  "Marketing Digital",
-  "Consultoría",
+const audiences = [
+  "Soy cliente — necesito un servicio",
+  "Soy técnico — quiero registrarme",
+  "Soy empresa / administradora",
+  "Tengo una duda sobre cobro o factura",
   "Otro",
 ];
 
-const budgets = [
-  "Menos de $1,000 USD",
-  "$1,000 – $3,000 USD",
-  "$3,000 – $7,000 USD",
-  "Más de $7,000 USD",
+const categories = [
+  "Electricidad",
+  "Plomería",
+  "Limpieza",
+  "Pintura",
+  "Carpintería",
+  "Cerrajería",
+  "Aire acondicionado",
+  "Electrodomésticos",
+  "Jardinería",
+  "Otra / no aplica",
 ];
 
 export function ContactForm() {
@@ -44,7 +50,7 @@ export function ContactForm() {
           ¡Mensaje recibido!
         </h3>
         <p className="mt-2 max-w-md text-pretty text-sm text-ink-500 mx-auto">
-          Gracias por escribirnos. Te respondemos en menos de 24 horas hábiles desde hola@edgarstudio.mx.
+          Gracias por escribirnos. Te respondemos en menos de 24 horas hábiles desde hola@servitec.mx.
         </p>
       </div>
     );
@@ -70,41 +76,39 @@ export function ContactForm() {
             type="email"
             name="email"
             required
-            placeholder="maria@empresa.com"
+            placeholder="maria@correo.com"
             className={inputClasses}
           />
         </Field>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
-        <Field label="Empresa">
-          <input
-            type="text"
-            name="company"
-            placeholder="Empresa o proyecto"
-            className={inputClasses}
-          />
-        </Field>
-        <Field label="Teléfono / WhatsApp">
+        <Field label="Teléfono / WhatsApp" required>
           <input
             type="tel"
             name="phone"
+            required
             placeholder="+52 55 1234 5678"
+            className={inputClasses}
+          />
+        </Field>
+        <Field label="Ciudad / colonia">
+          <input
+            type="text"
+            name="city"
+            placeholder="Colonia, alcaldía"
             className={inputClasses}
           />
         </Field>
       </div>
 
-      <Field label="¿En qué podemos ayudarte?" required>
+      <Field label="¿Cómo podemos ayudarte?" required>
         <div className="flex flex-wrap gap-2">
-          {services.map((s) => (
-            <label
-              key={s}
-              className="cursor-pointer"
-            >
+          {audiences.map((s) => (
+            <label key={s} className="cursor-pointer">
               <input
                 type="radio"
-                name="service"
+                name="audience"
                 value={s}
                 required
                 className="peer sr-only"
@@ -117,13 +121,13 @@ export function ContactForm() {
         </div>
       </Field>
 
-      <Field label="Presupuesto estimado">
+      <Field label="Categoría de interés (opcional)">
         <div className="flex flex-wrap gap-2">
-          {budgets.map((b) => (
+          {categories.map((b) => (
             <label key={b} className="cursor-pointer">
               <input
                 type="radio"
-                name="budget"
+                name="category"
                 value={b}
                 className="peer sr-only"
               />
@@ -140,7 +144,7 @@ export function ContactForm() {
           name="message"
           required
           rows={5}
-          placeholder="Describe brevemente el proyecto, tus tiempos y cualquier referencia que sea útil..."
+          placeholder="Describe brevemente tu solicitud, el problema o la duda que tengas..."
           className={cn(inputClasses, "resize-y")}
         />
       </Field>
