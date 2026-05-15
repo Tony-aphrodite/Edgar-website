@@ -4,7 +4,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Check, ArrowRight, Sparkles } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { pricing } from "@/lib/data";
+import { pricingPlans } from "@/lib/data";
+import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export function Pricing({ compact = false }: { compact?: boolean }) {
@@ -14,22 +15,22 @@ export function Pricing({ compact = false }: { compact?: boolean }) {
         <div className="mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-ink-200/80 bg-white/60 px-3 py-1 text-xs font-medium uppercase tracking-[0.14em] text-ink-500 backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_12px_rgba(99,102,241,0.6)]" />
-            Inversión
+            Precios y comisiones
           </div>
           <h2 className="mt-5 text-balance text-display-lg text-ink-900">
-            Planes claros,{" "}
+            Sin mensualidades.{" "}
             <span className="font-serif italic font-normal text-ink-500">
-              sin letras pequeñas
+              Solo cuando hay un servicio
             </span>
             .
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-pretty text-ink-500">
-            Elige el punto de partida que mejor se ajuste a tu negocio. Después podemos crecer juntos.
+            ServiTec es una plataforma marketplace. Publicamos cómo opera el cobro, qué retiene la plataforma y qué recibe el técnico — sin letras pequeñas.
           </p>
         </div>
 
         <div className="mt-16 grid gap-5 lg:grid-cols-3">
-          {pricing.map((plan, i) => (
+          {pricingPlans.map((plan, i) => (
             <motion.div
               key={plan.name}
               initial={{ opacity: 0, y: 24 }}
@@ -76,16 +77,8 @@ export function Pricing({ compact = false }: { compact?: boolean }) {
                 </p>
               </div>
 
-              <div className="relative mt-8 flex items-baseline gap-2">
-                <span
-                  className={cn(
-                    "text-sm font-medium",
-                    plan.highlighted ? "text-white/60" : "text-ink-400",
-                  )}
-                >
-                  desde
-                </span>
-                <span
+              <div className="relative mt-8">
+                <div
                   className={cn(
                     "font-semibold tracking-tight",
                     plan.highlighted
@@ -94,16 +87,16 @@ export function Pricing({ compact = false }: { compact?: boolean }) {
                     "text-display-lg",
                   )}
                 >
-                  ${plan.price}
-                </span>
-                <span
+                  {plan.headline}
+                </div>
+                <div
                   className={cn(
-                    "text-sm font-medium",
+                    "mt-1 text-sm font-medium",
                     plan.highlighted ? "text-white/60" : "text-ink-400",
                   )}
                 >
-                  {plan.currency} / {plan.period}
-                </span>
+                  {plan.sub}
+                </div>
               </div>
 
               <ul className="relative mt-8 space-y-3.5">
@@ -128,7 +121,7 @@ export function Pricing({ compact = false }: { compact?: boolean }) {
 
               <div className="relative mt-10">
                 <Link
-                  href="/contacto"
+                  href={plan.ctaHref}
                   className={cn(
                     "group relative inline-flex h-12 w-full items-center justify-center gap-2 overflow-hidden rounded-full text-[15px] font-medium transition-all",
                     plan.highlighted
@@ -147,12 +140,21 @@ export function Pricing({ compact = false }: { compact?: boolean }) {
           ))}
         </div>
 
-        <p className="mt-10 text-center text-sm text-ink-400">
-          Todos los precios en USD. Aceptamos tarjeta vía Stripe, transferencia y PayPal. ¿Necesitas algo a la medida?{" "}
-          <Link href="/contacto" className="font-medium text-ink-900 underline-offset-4 hover:underline">
-            Hablemos.
-          </Link>
-        </p>
+        <div className="mx-auto mt-12 max-w-3xl rounded-3xl border border-ink-100 bg-white p-6 text-sm leading-relaxed text-ink-600 shadow-soft sm:p-8">
+          <p>
+            <span className="font-semibold text-ink-900">¿Cómo se cobra?</span>{" "}
+            El cliente paga el monto total del servicio dentro de la app, procesado por Stripe. Mediante <span className="font-semibold">Stripe Connect</span>, el importe se libera al técnico al confirmar la finalización del servicio. ServiTec retiene automáticamente la comisión del{" "}
+            <span className="font-semibold text-ink-900">{site.commission.rate}%</span> sobre el monto cobrado, sin cargos adicionales para el cliente.
+          </p>
+          <p className="mt-3">
+            <span className="font-semibold text-ink-900">¿Y las facturas?</span>{" "}
+            Cuando el técnico está dado de alta en el RFC, emite la factura CFDI al cliente por el monto total del servicio. ServiTec emite por separado al técnico el CFDI por la comisión cobrada.{" "}
+            <Link href="/terminos" className="font-medium text-ink-900 underline-offset-4 hover:underline">
+              Consulta los términos
+            </Link>
+            .
+          </p>
+        </div>
       </Container>
     </section>
   );
