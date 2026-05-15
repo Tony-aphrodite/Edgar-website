@@ -6,7 +6,7 @@ export function Logos() {
     <section className="border-y border-ink-100 bg-white py-14">
       <Container>
         <p className="text-center text-xs font-medium uppercase tracking-[0.22em] text-ink-400">
-          La confianza de marcas que crecen
+          Categorías de servicio disponibles
         </p>
         <div className="mt-8 overflow-hidden mask-fade-x">
           <div className="marquee marquee-reverse flex w-max items-center gap-12 whitespace-nowrap [--marquee-duration:50s]">
