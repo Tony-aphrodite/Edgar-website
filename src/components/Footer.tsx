@@ -2,23 +2,26 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/Logo";
 import { site } from "@/lib/site";
-import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Facebook, Linkedin } from "lucide-react";
 
 const columns = [
   {
     title: "Servicios",
     links: [
-      { label: "Diseño Web", href: "/servicios#diseno-web" },
-      { label: "Branding", href: "/servicios#branding" },
-      { label: "Marketing Digital", href: "/servicios#marketing" },
-      { label: "Consultoría", href: "/servicios#consultoria" },
+      { label: "Electricidad", href: "/servicios#electricidad" },
+      { label: "Plomería", href: "/servicios#plomeria" },
+      { label: "Limpieza", href: "/servicios#limpieza" },
+      { label: "Pintura", href: "/servicios#pintura" },
+      { label: "Carpintería", href: "/servicios#carpinteria" },
+      { label: "Ver todos", href: "/servicios" },
     ],
   },
   {
-    title: "Compañía",
+    title: "Plataforma",
     links: [
-      { label: "Nosotros", href: "/nosotros" },
-      { label: "Precios", href: "/precios" },
+      { label: "Cómo funciona", href: "/como-funciona" },
+      { label: "Para técnicos", href: "/tecnicos" },
+      { label: "Precios y comisiones", href: "/precios" },
       { label: "Contacto", href: "/contacto" },
     ],
   },
@@ -76,6 +79,15 @@ export function Footer() {
                 <Instagram className="h-4 w-4" />
               </a>
               <a
+                href={site.social.facebook}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Facebook"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink-200 bg-white text-ink-600 transition hover:border-ink-900 hover:text-ink-900"
+              >
+                <Facebook className="h-4 w-4" />
+              </a>
+              <a
                 href={site.social.linkedin}
                 target="_blank"
                 rel="noreferrer"
@@ -83,15 +95,6 @@ export function Footer() {
                 className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink-200 bg-white text-ink-600 transition hover:border-ink-900 hover:text-ink-900"
               >
                 <Linkedin className="h-4 w-4" />
-              </a>
-              <a
-                href={site.social.twitter}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Twitter"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink-200 bg-white text-ink-600 transition hover:border-ink-900 hover:text-ink-900"
-              >
-                <Twitter className="h-4 w-4" />
               </a>
             </div>
           </div>
