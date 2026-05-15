@@ -1,281 +1,433 @@
 import {
-  Layers,
-  Sparkles,
-  TrendingUp,
-  Compass,
-  Search,
-  PenTool,
-  Code2,
-  Rocket,
-  Check,
+  Zap,
+  Wrench,
+  SprayCan,
+  Paintbrush,
+  Hammer,
+  Key,
+  Snowflake,
+  Plug,
+  Leaf,
+  ClipboardList,
+  FileText,
+  CheckCircle2,
+  CreditCard,
+  ShieldCheck,
+  BadgeCheck,
+  LockKeyhole,
+  MapPin,
+  Headphones,
 } from "lucide-react";
 
+// --- Categorías de servicios disponibles en la app ServiTec --------------
+// Los íconos vienen de lucide-react; los slugs se usan como anclas en
+// /servicios#electricidad, etc.
 export const services = [
   {
-    icon: Layers,
-    title: "Diseño Web",
-    short: "Sitios modernos, rápidos y optimizados.",
+    slug: "electricidad",
+    icon: Zap,
+    title: "Electricidad",
+    short: "Instalación y reparación eléctrica residencial.",
     description:
-      "Diseñamos y desarrollamos sitios web a la medida con un enfoque obsesivo en la velocidad, la accesibilidad y la conversión.",
-    features: [
-      "Diseño UX/UI personalizado",
-      "Desarrollo en Next.js o WordPress",
-      "Optimización SEO técnica",
-      "Velocidad < 1.5s en LCP",
-      "Integración con CRM y analítica",
+      "Diagnóstico, instalación y reparación de circuitos, contactos, apagadores, lámparas, centros de carga y cableado en hogares y oficinas.",
+    examples: [
+      "Cambio de contactos y apagadores",
+      "Instalación de lámparas y candiles",
+      "Diagnóstico de cortos y fallas",
+      "Cableado y centros de carga",
+      "Instalación de no-breaks",
     ],
   },
   {
-    icon: Sparkles,
-    title: "Branding & Identidad",
-    short: "Identidad visual que conecta.",
+    slug: "plomeria",
+    icon: Wrench,
+    title: "Plomería",
+    short: "Fugas, destapes e instalaciones hidráulicas.",
     description:
-      "Construimos identidades visuales coherentes y memorables: desde el logotipo hasta el sistema de marca completo.",
-    features: [
-      "Investigación de marca",
-      "Logotipo y sistema visual",
-      "Tipografía y paleta cromática",
-      "Manual de marca aplicable",
-      "Plantillas para redes sociales",
+      "Reparación de fugas, destape de coladeras y tuberías, instalación de muebles de baño, calentadores y bombas de agua.",
+    examples: [
+      "Reparación de fugas en tuberías",
+      "Destape de coladeras y W.C.",
+      "Instalación de calentadores",
+      "Cambio de llaves y mezcladoras",
+      "Mantenimiento de cisternas",
     ],
   },
   {
-    icon: TrendingUp,
-    title: "Marketing Digital",
-    short: "Crecimiento medible y sostenible.",
+    slug: "limpieza",
+    icon: SprayCan,
+    title: "Limpieza",
+    short: "Limpieza profunda residencial y de oficinas.",
     description:
-      "Estrategias de adquisición que combinan SEO, contenido, redes sociales y publicidad pagada para hacer crecer tu negocio.",
-    features: [
-      "Estrategia de canales",
-      "Campañas en Meta y Google Ads",
-      "SEO on-page y de contenido",
-      "Email marketing automatizado",
-      "Reportes mensuales claros",
+      "Limpieza general, profunda, post-obra y de mantenimiento para hogares, departamentos y oficinas, con productos y equipo propios.",
+    examples: [
+      "Limpieza profunda de hogar",
+      "Limpieza post-obra",
+      "Lavado de sillones y alfombras",
+      "Limpieza de oficinas",
+      "Mantenimiento periódico",
     ],
   },
   {
-    icon: Compass,
-    title: "Consultoría Estratégica",
-    short: "Claridad para decidir mejor.",
+    slug: "pintura",
+    icon: Paintbrush,
+    title: "Pintura",
+    short: "Pintura de interiores, exteriores y acabados.",
     description:
-      "Te acompañamos a definir tu estrategia digital, mapear oportunidades y priorizar las inversiones que importan.",
-    features: [
-      "Auditoría digital integral",
-      "Roadmap a 6 y 12 meses",
-      "Optimización de conversiones (CRO)",
-      "Workshops con tu equipo",
-      "Mentoría mensual",
+      "Aplicación de pintura vinílica, esmalte y acabados especiales en muros, plafones, rejas y herrería, con preparación de superficies.",
+    examples: [
+      "Pintura de interiores",
+      "Pintura de fachadas",
+      "Resanes y texturas",
+      "Esmalte en herrería",
+      "Recubrimientos impermeables",
+    ],
+  },
+  {
+    slug: "carpinteria",
+    icon: Hammer,
+    title: "Carpintería",
+    short: "Muebles, puertas y reparaciones en madera.",
+    description:
+      "Reparación, instalación y fabricación a medida de muebles, closets, puertas, herrajes y trabajos en madera para hogar y oficina.",
+    examples: [
+      "Reparación de puertas",
+      "Instalación de closets",
+      "Muebles a la medida",
+      "Cambio de chapas y herrajes",
+      "Resanes y barnizado",
+    ],
+  },
+  {
+    slug: "cerrajeria",
+    icon: Key,
+    title: "Cerrajería",
+    short: "Cerraduras, copias y apertura de emergencia.",
+    description:
+      "Cambio e instalación de cerraduras, duplicado de llaves y servicio de apertura de puertas para hogar y automóvil.",
+    examples: [
+      "Cambio de cerraduras",
+      "Apertura de emergencia",
+      "Duplicado de llaves",
+      "Cerraduras inteligentes",
+      "Refuerzo de seguridad",
+    ],
+  },
+  {
+    slug: "aire-acondicionado",
+    icon: Snowflake,
+    title: "Aire acondicionado",
+    short: "Instalación y mantenimiento de minisplits.",
+    description:
+      "Instalación, mantenimiento, recarga de gas y reparación de equipos de aire acondicionado tipo minisplit y ventana.",
+    examples: [
+      "Instalación de minisplits",
+      "Mantenimiento preventivo",
+      "Recarga de gas refrigerante",
+      "Reparación de fallas",
+      "Limpieza profunda",
+    ],
+  },
+  {
+    slug: "electrodomesticos",
+    icon: Plug,
+    title: "Electrodomésticos",
+    short: "Reparación de línea blanca y aparatos.",
+    description:
+      "Diagnóstico y reparación de refrigeradores, lavadoras, secadoras, estufas, hornos y otros aparatos electrodomésticos.",
+    examples: [
+      "Reparación de refrigeradores",
+      "Lavadoras y secadoras",
+      "Estufas y hornos",
+      "Calentadores eléctricos",
+      "Pequeños electrodomésticos",
+    ],
+  },
+  {
+    slug: "jardineria",
+    icon: Leaf,
+    title: "Jardinería",
+    short: "Mantenimiento de jardines y áreas verdes.",
+    description:
+      "Poda, corte de pasto, fumigación, diseño de jardines y mantenimiento periódico de áreas verdes residenciales.",
+    examples: [
+      "Corte y mantenimiento de pasto",
+      "Poda de árboles y arbustos",
+      "Diseño de jardines",
+      "Fumigación y control de plagas",
+      "Sistemas de riego",
     ],
   },
 ];
 
-export const process = [
+// --- Flujo para clientes en la app ---------------------------------------
+export const clientProcess = [
   {
-    icon: Search,
+    icon: ClipboardList,
     step: "01",
-    title: "Descubrimiento",
+    title: "Solicita el servicio",
     description:
-      "Conocemos tu marca, tu audiencia y tus objetivos. Investigamos a tu competencia y mapeamos oportunidades.",
+      "Describe el problema, sube fotos y comparte tu ubicación desde la app. La solicitud llega a los técnicos verificados de tu zona.",
   },
   {
-    icon: PenTool,
+    icon: FileText,
     step: "02",
-    title: "Estrategia & Diseño",
+    title: "Recibe una cotización",
     description:
-      "Definimos un plan a la medida, prototipamos la experiencia y diseñamos cada pantalla con cuidado por el detalle.",
+      "El técnico revisa tu solicitud y te envía una cotización clara: mano de obra, materiales y piezas, sin sorpresas.",
   },
   {
-    icon: Code2,
+    icon: CheckCircle2,
     step: "03",
-    title: "Desarrollo",
+    title: "Aprueba y agenda",
     description:
-      "Construimos con código limpio y herramientas modernas. Validamos rendimiento, accesibilidad y SEO en cada iteración.",
+      "Si te convence, apruebas la cotización y agendan el día y hora. El técnico llega puntual y realiza el trabajo.",
   },
   {
-    icon: Rocket,
+    icon: CreditCard,
     step: "04",
-    title: "Lanzamiento & Soporte",
+    title: "Paga seguro en la app",
     description:
-      "Desplegamos con cuidado, capacitamos a tu equipo y nos quedamos a tu lado para iterar y crecer.",
+      "Pagas con tarjeta dentro de la app mediante Stripe. Recibes comprobante y, si lo necesitas, factura CFDI emitida por el técnico.",
   },
 ];
 
-export const stats = [
-  { value: "150+", label: "Proyectos entregados" },
-  { value: "60+", label: "Clientes satisfechos" },
-  { value: "8 años", label: "De experiencia" },
-  { value: "4.9 / 5", label: "Calificación promedio" },
+// --- Flujo para técnicos --------------------------------------------------
+export const technicianProcess = [
+  {
+    icon: ClipboardList,
+    step: "01",
+    title: "Regístrate gratis",
+    description:
+      "Descarga la app, crea tu perfil, elige tus categorías y zonas de cobertura. Registrarse no tiene costo ni mensualidad.",
+  },
+  {
+    icon: ShieldCheck,
+    step: "02",
+    title: "Verifica tu identidad",
+    description:
+      "Sube tu INE, comprobante de domicilio, RFC y constancia de situación fiscal. Validamos cada técnico antes de activarlo.",
+  },
+  {
+    icon: Headphones,
+    step: "03",
+    title: "Recibe solicitudes",
+    description:
+      "Cuando un cliente solicite un servicio en tu zona y categoría, recibirás la notificación en la app para cotizar.",
+  },
+  {
+    icon: CreditCard,
+    step: "04",
+    title: "Cobra y crece",
+    description:
+      "Al completar el servicio, el pago del cliente se libera en tu cuenta vía Stripe Connect. La plataforma descuenta una comisión transparente.",
+  },
 ];
 
-export const pricing = [
+// Alias retro-compatible: si algún componente importa `process`, sigue
+// funcionando con el flujo del cliente como flujo principal.
+export const process = clientProcess;
+
+// --- Razones para elegir ServiTec (sustituye testimonios falsos) ---------
+export const valueProps = [
   {
-    name: "Starter",
-    price: "599",
-    currency: "USD",
-    period: "proyecto",
+    icon: BadgeCheck,
+    title: "Técnicos verificados",
     description:
-      "Perfecto para emprendedores que necesitan presencia digital profesional rápidamente.",
+      "Cada técnico pasa por un proceso de validación de identidad y documentos antes de poder ofrecer servicios en la plataforma.",
+  },
+  {
+    icon: LockKeyhole,
+    title: "Pago seguro en la app",
+    description:
+      "El pago se procesa por Stripe y se libera al técnico al completar el servicio. Tus datos de tarjeta nunca se comparten.",
+  },
+  {
+    icon: FileText,
+    title: "Cotización transparente",
+    description:
+      "Antes de aprobar un servicio recibes una cotización con mano de obra, materiales y piezas desglosados. Sin letras pequeñas.",
+  },
+  {
+    icon: Headphones,
+    title: "Soporte humano",
+    description:
+      "Si algo no sale como esperabas, nuestro equipo de soporte te acompaña hasta resolverlo. Estamos disponibles toda la semana.",
+  },
+  {
+    icon: MapPin,
+    title: "Cobertura local",
+    description:
+      "Conectamos con técnicos cercanos para que el tiempo de respuesta y traslado sea el mínimo posible.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Factura CFDI disponible",
+    description:
+      "Si el técnico es persona física o moral con obligaciones fiscales activas, puedes solicitar tu factura CFDI directo desde la app.",
+  },
+];
+
+// --- Indicadores de confianza (sin números inflados) ---------------------
+export const trustSignals = [
+  {
+    title: "100% verificados",
+    description: "Identidad, domicilio y situación fiscal validados antes de activarse.",
+  },
+  {
+    title: "Pago en la app",
+    description: "Procesado por Stripe con liberación al completar el trabajo.",
+  },
+  {
+    title: "Sin mensualidades",
+    description: "Para clientes y técnicos: ServiTec solo cobra al cerrarse un servicio.",
+  },
+  {
+    title: "Soporte 7 días",
+    description: "Atención al cliente de lunes a sábado, con guardias el domingo.",
+  },
+];
+
+// --- Planes / estructura de comisión -------------------------------------
+// La plataforma no vende paquetes a clientes finales. Estos "planes"
+// describen quién paga qué, para cumplir los requisitos de transparencia
+// que pide Stripe a marketplaces.
+export const pricingPlans = [
+  {
+    name: "Para clientes",
+    audience: "cliente",
+    headline: "Gratis",
+    sub: "Descargar y solicitar",
+    description:
+      "Descargar la app, crear tu cuenta y solicitar cotizaciones es completamente gratis. Solo pagas el servicio cuando aprueba la cotización del técnico.",
     features: [
-      "Sitio de hasta 3 páginas",
-      "Diseño responsivo a la medida",
-      "Formulario de contacto",
-      "SEO básico on-page",
-      "Integración con Google Analytics",
-      "Soporte por 30 días",
+      "Sin mensualidades ni cuotas de registro",
+      "Cotización gratis antes de aprobar",
+      "Pago seguro con tarjeta vía Stripe",
+      "Comprobante y, si aplica, CFDI emitido por el técnico",
+      "Soporte humano si algo no sale bien",
     ],
-    cta: "Empezar con Starter",
+    cta: "Descargar la app",
+    ctaHref: "#descargar",
     highlighted: false,
   },
   {
-    name: "Profesional",
-    price: "1,799",
-    currency: "USD",
-    period: "proyecto",
+    name: "Para técnicos",
+    audience: "tecnico",
+    headline: "12% de comisión",
+    sub: "por servicio completado",
     description:
-      "El plan más popular para negocios que quieren crecer con bases sólidas.",
+      "Registrarte y mantener tu perfil activo no tiene costo. ServiTec retiene una comisión del 12% sobre cada servicio que cobres a través de la plataforma.",
     features: [
-      "Hasta 8 páginas + blog",
-      "Diseño UX/UI personalizado",
-      "CMS para que edites tú mismo",
-      "SEO técnico avanzado",
-      "Integraciones (CRM, email, pagos)",
-      "Capacitación de 2 horas",
-      "Soporte por 90 días",
+      "Registro y publicación de perfil sin costo",
+      "Sin mensualidades ni cargos fijos",
+      "Comisión transparente del 12% por servicio",
+      "Cobro automático con Stripe Connect",
+      "CFDI de comisión emitido por ServiTec al técnico",
+      "Acompañamiento en validación de identidad y RFC",
     ],
-    cta: "Elegir Profesional",
+    cta: "Quiero trabajar como técnico",
+    ctaHref: "/tecnicos",
     highlighted: true,
-    badge: "Más popular",
+    badge: "Modelo marketplace",
   },
   {
-    name: "Premium",
-    price: "4,500",
-    currency: "USD",
-    period: "proyecto",
+    name: "Empresas",
+    audience: "empresa",
+    headline: "A la medida",
+    sub: "convenios corporativos",
     description:
-      "Para empresas que necesitan una solución completa con marketing y branding incluidos.",
+      "Edificios, administradoras, inmobiliarias y empresas con múltiples inmuebles pueden contratar servicios recurrentes con condiciones comerciales especiales.",
     features: [
-      "Sitio personalizado sin límite de páginas",
-      "Identidad visual completa incluida",
-      "Estrategia de marketing 90 días",
-      "Campaña inicial de Meta o Google Ads",
-      "Optimización de conversiones",
-      "Acompañamiento estratégico mensual",
-      "Soporte prioritario por 6 meses",
+      "Cuenta multi-inmueble",
+      "Facturación consolidada",
+      "Técnicos asignados por zona",
+      "Reportes y bitácora de servicios",
+      "Tiempos de respuesta acordados (SLA)",
     ],
-    cta: "Hablar de Premium",
+    cta: "Hablar con ventas",
+    ctaHref: "/contacto",
     highlighted: false,
   },
 ];
 
-export const testimonials = [
-  {
-    quote:
-      "Edgar Studio transformó nuestra presencia digital. En tres meses pasamos de no aparecer en Google a recibir reservas todos los días desde la web.",
-    name: "Lucía Hernández",
-    role: "Fundadora",
-    company: "Restaurante Mar y Sol",
-  },
-  {
-    quote:
-      "Profesionalismo de principio a fin. El diseño es elegante, la velocidad impresionante y, lo mejor, las consultas duplicaron en el primer mes.",
-    name: "Andrés Ramírez",
-    role: "Director clínico",
-    company: "Clínica Dental Sonrisas",
-  },
-  {
-    quote:
-      "Más que una agencia, son un socio. Entienden el negocio y proponen soluciones que mueven la aguja, no sólo bonitas láminas.",
-    name: "Mariana López",
-    role: "CEO",
-    company: "Boutique Florencia",
-  },
-  {
-    quote:
-      "El equipo es ágil y comunicativo. Lanzamos el sitio en tiempo y la curva de aprendizaje para nuestro equipo fue mínima.",
-    name: "Roberto Cárdenas",
-    role: "Director de marketing",
-    company: "Grupo Aurora",
-  },
-];
+// Alias retro-compatible para componentes que importen `pricing`.
+export const pricing = pricingPlans;
 
+// --- Preguntas frecuentes -------------------------------------------------
 export const faqs = [
   {
-    q: "¿Cuánto tarda un proyecto típico?",
-    a: "Un proyecto Starter toma de 2 a 3 semanas. Profesional, entre 4 y 6 semanas. Premium, de 8 a 10 semanas. Definimos el plan exacto en la fase de descubrimiento.",
+    q: "¿Cómo solicito un servicio?",
+    a: "Descarga la app de ServiTec, crea tu cuenta con tu correo o teléfono, elige la categoría de servicio que necesitas (electricidad, plomería, limpieza, etc.), describe el problema, sube fotos si lo deseas y comparte tu ubicación. En minutos recibirás cotizaciones de técnicos verificados de tu zona.",
   },
   {
-    q: "¿Trabajan con clientes fuera de México?",
-    a: "Sí. Atendemos clientes en toda Latinoamérica, Estados Unidos y España. Trabajamos en español e inglés y facturamos en USD o MXN.",
+    q: "¿Cómo se calcula el precio de un servicio?",
+    a: "ServiTec funciona con cotización: el técnico revisa tu solicitud y te envía un presupuesto que desglosa mano de obra, materiales y piezas. Tú decides si aprobarlo antes de que comience el trabajo. No hay sorpresas ni cargos adicionales una vez aprobada la cotización.",
   },
   {
-    q: "¿Cómo funcionan los pagos?",
-    a: "Para nuevos proyectos, solicitamos 50% al inicio y 50% al lanzamiento. Aceptamos transferencia, tarjeta y pagos seguros vía Stripe. Para retainers mensuales, cobramos a inicio de cada mes.",
+    q: "¿Cómo se paga?",
+    a: "El pago se realiza dentro de la app con tarjeta de crédito o débito, procesado de forma segura por Stripe. El monto queda retenido hasta que el servicio se complete y se libera al técnico mediante Stripe Connect. ServiTec descuenta automáticamente su comisión.",
   },
   {
-    q: "¿Ofrecen soporte después del lanzamiento?",
-    a: "Sí. Cada plan incluye un periodo de soporte. Después puedes contratar nuestro plan de mantenimiento mensual desde 199 USD.",
+    q: "¿Puedo recibir factura?",
+    a: "Sí. Si el técnico que realiza el servicio está inscrito en el RFC y emite CFDI, puedes solicitar tu factura directamente desde la app. El comprobante fiscal lo emite el técnico a su nombre por el monto total del servicio. ServiTec emite por separado un CFDI al técnico por la comisión cobrada.",
   },
   {
-    q: "¿Qué pasa si no quedo satisfecho?",
-    a: "Trabajamos con revisiones incluidas en cada fase y un proceso de aprobación claro. Si en los primeros 14 días algo no cumple lo prometido, ajustamos sin costo o reembolsamos según nuestra política.",
+    q: "¿Qué pasa si el trabajo no queda bien?",
+    a: "Tienes 24 horas después de completado el servicio para reportar inconformidades desde la app. Nuestro equipo de soporte revisa el caso, contacta al técnico y, si procede, aplica el reembolso correspondiente según la Política de reembolsos. Consulta los detalles en /reembolsos.",
   },
   {
-    q: "¿Puedo cambiar de plan después?",
-    a: "Por supuesto. Puedes empezar con Starter y crecer hacia Profesional o Premium. Acreditamos lo invertido en el plan inicial.",
+    q: "¿Cómo verifican a los técnicos?",
+    a: "Antes de activarse, cada técnico pasa por un proceso de verificación: identificación oficial (INE), comprobante de domicilio, RFC y constancia de situación fiscal. También validamos sus datos para depósitos a través de Stripe Connect.",
+  },
+  {
+    q: "¿Cuánto cobra ServiTec a los técnicos?",
+    a: "ServiTec cobra una comisión del 12% sobre cada servicio completado y pagado a través de la plataforma. No hay mensualidades, cuotas de registro ni cargos por publicación de perfil. La comisión se descuenta automáticamente al momento del cobro.",
+  },
+  {
+    q: "¿En qué zonas opera ServiTec?",
+    a: "Actualmente operamos en la Ciudad de México y zona metropolitana del Valle de México. Estamos expandiendo cobertura — si tu zona aún no aparece en la app, déjanos tu correo y te avisaremos cuando lleguemos.",
   },
 ];
 
+// --- Misión / valores ----------------------------------------------------
 export const aboutValues = [
   {
-    icon: Sparkles,
-    title: "Diseño con propósito",
+    icon: BadgeCheck,
+    title: "Confianza, primero",
     description:
-      "Cada pixel responde a un objetivo de negocio. La estética sirve a la conversión, no al revés.",
+      "Verificamos a cada técnico y cuidamos cada pago para que solicitar un servicio en casa deje de dar miedo.",
   },
   {
-    icon: Compass,
-    title: "Estrategia primero",
+    icon: LockKeyhole,
+    title: "Transparencia en cada paso",
     description:
-      "Antes de diseñar, entendemos. Antes de lanzar, validamos. Trabajamos con datos, no con suposiciones.",
+      "Cotización clara, comisión publicada, factura disponible. Lo que ves es lo que pagas.",
   },
   {
-    icon: Check,
-    title: "Compromiso total",
+    icon: Headphones,
+    title: "Personas, no tickets",
     description:
-      "Tratamos cada proyecto como si fuera nuestro propio negocio. Si tú creces, nosotros crecemos.",
+      "Detrás de cada servicio hay un técnico que sostiene a su familia y un cliente con un problema real. Operamos con ese respeto.",
   },
 ];
 
-export const team = [
-  {
-    name: "Edgar Vázquez",
-    role: "Fundador & Director Creativo",
-    bio: "Más de 12 años diseñando marcas y experiencias digitales para startups y empresas establecidas.",
-  },
-  {
-    name: "Daniela Ortiz",
-    role: "Directora de Estrategia",
-    bio: "Especialista en marketing de crecimiento y optimización de conversiones para e-commerce y SaaS.",
-  },
-  {
-    name: "Carlos Méndez",
-    role: "Lead Developer",
-    bio: "Ingeniero full-stack obsesionado con la velocidad y la accesibilidad en la web moderna.",
-  },
-  {
-    name: "Sofía Aguilar",
-    role: "Diseñadora Senior UX/UI",
-    bio: "Diseñadora de producto con foco en investigación de usuarios y diseño de sistemas escalables.",
-  },
-];
+// Equipos visibles públicamente — se mantiene vacío hasta tener perfiles
+// reales que publicar. La página /nosotros (o /como-funciona) ya no
+// muestra equipo ficticio.
+export const team: { name: string; role: string; bio: string }[] = [];
 
+// Lista de "clientes". En un marketplace de servicios no hay clientes
+// corporativos que mostrar como logos — sustituimos por las categorías de
+// servicio para el marquee del Hero.
 export const clients = [
-  "MAR & SOL",
-  "SONRISAS",
-  "FLORENCIA",
-  "GRUPO AURORA",
-  "ATELIER",
-  "VERTEX",
-  "NOVA LAB",
-  "CASA TOLEDO",
+  "ELECTRICIDAD",
+  "PLOMERÍA",
+  "LIMPIEZA",
+  "PINTURA",
+  "CARPINTERÍA",
+  "CERRAJERÍA",
+  "AIRE ACONDICIONADO",
+  "ELECTRODOMÉSTICOS",
+  "JARDINERÍA",
 ];
