@@ -1,22 +1,30 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
+import { ShieldCheck, LockKeyhole, BadgeCheck, Headphones } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 
-type Stat = {
-  value: number;
-  suffix?: string;
-  prefix?: string;
-  label: string;
-  decimals?: number;
-};
-
-const stats: Stat[] = [
-  { value: 150, suffix: "+", label: "Proyectos entregados" },
-  { value: 60, suffix: "+", label: "Clientes satisfechos" },
-  { value: 8, suffix: " años", label: "De experiencia" },
-  { value: 4.9, decimals: 1, label: "Calificación promedio" },
+const items = [
+  {
+    icon: BadgeCheck,
+    title: "100% verificados",
+    description: "Identidad, domicilio y RFC validados antes de activar a un técnico.",
+  },
+  {
+    icon: LockKeyhole,
+    title: "Pago seguro",
+    description: "Procesado por Stripe y liberado solo cuando completas el servicio.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Sin mensualidades",
+    description: "Clientes y técnicos no pagan cuotas fijas. Solo al cerrar un servicio.",
+  },
+  {
+    icon: Headphones,
+    title: "Soporte humano",
+    description: "Equipo de soporte de lunes a sábado para resolver imprevistos.",
+  },
 ];
 
 export function Stats() {
@@ -31,66 +39,50 @@ export function Stats() {
             <div className="lg:col-span-5">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-[0.14em] text-white/70 backdrop-blur">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.6)]" />
-                En números
+                Lo que garantizamos
               </div>
               <h2 className="mt-5 text-balance text-display-lg text-white">
-                Resultados que se{" "}
+                Confianza, transparencia{" "}
                 <span className="font-serif italic font-normal text-white/80">
-                  cuentan en años
-                </span>{" "}
-                y se sienten en el negocio.
+                  y soporte real
+                </span>
+                .
               </h2>
+              <p className="mt-5 max-w-md text-pretty text-white/65">
+                ServiTec opera como marketplace: el cliente paga al técnico a través de la app y la plataforma cobra una comisión transparente.
+              </p>
             </div>
 
-            <div className="grid gap-y-10 lg:col-span-7 lg:grid-cols-2">
-              {stats.map((s, i) => (
-                <StatItem key={s.label} stat={s} delay={i * 0.06} />
-              ))}
+            <div className="grid gap-y-10 lg:col-span-7 sm:grid-cols-2 sm:gap-x-8">
+              {items.map((s, i) => {
+                const Icon = s.icon;
+                return (
+                  <motion.div
+                    key={s.title}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.6, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                    className="flex gap-4"
+                  >
+                    <span className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-white/10 text-white">
+                      <Icon className="h-5 w-5" strokeWidth={1.75} />
+                    </span>
+                    <div>
+                      <div className="text-base font-semibold text-white">
+                        {s.title}
+                      </div>
+                      <div className="mt-1 text-sm text-white/60">
+                        {s.description}
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </div>
       </Container>
     </section>
-  );
-}
-
-function StatItem({ stat, delay }: { stat: Stat; delay: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-  const [n, setN] = useState(0);
-
-  useEffect(() => {
-    if (!inView) return;
-    const start = performance.now();
-    const duration = 1500;
-    let raf = 0;
-    const tick = (t: number) => {
-      const p = Math.min(1, (t - start) / duration);
-      const eased = 1 - Math.pow(1 - p, 3);
-      setN(stat.value * eased);
-      if (p < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [inView, stat.value]);
-
-  const formatted =
-    stat.decimals !== undefined ? n.toFixed(stat.decimals) : Math.round(n).toString();
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 16 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
-      className="border-l border-white/10 pl-6 first:border-l-0 first:pl-0 sm:pl-8 lg:border-l lg:first:border-l"
-    >
-      <div className="bg-gradient-to-r from-white via-white/95 to-white/70 bg-clip-text text-display-xl font-semibold tracking-tight text-transparent">
-        {stat.prefix}
-        {formatted}
-        {stat.suffix}
-      </div>
-      <div className="mt-2 text-sm text-white/60">{stat.label}</div>
-    </motion.div>
   );
 }
