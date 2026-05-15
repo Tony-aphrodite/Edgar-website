@@ -2,7 +2,19 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, PlayCircle, Sparkles } from "lucide-react";
+import {
+  ArrowUpRight,
+  Smartphone,
+  ShieldCheck,
+  LockKeyhole,
+  MapPin,
+  Zap,
+  Wrench,
+  SprayCan,
+  Paintbrush,
+  Hammer,
+  Key,
+} from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { clients } from "@/lib/data";
 
@@ -26,18 +38,18 @@ export function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
               </span>
-              Reservas abiertas — segundo trimestre 2026
+              Disponible en Ciudad de México y zona metropolitana
             </div>
 
-            <h1 className="mt-7 text-balance text-[clamp(2.75rem,7.5vw,6.75rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-white">
-              Diseñamos marcas
+            <h1 className="mt-7 text-balance text-[clamp(2.5rem,7vw,6rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-white">
+              Técnicos de confianza
               <br className="hidden sm:block" />{" "}
               <span className="font-serif italic font-normal text-white/95">
-                que la gente
+                para tu hogar,
               </span>{" "}
               <span className="relative inline-block">
                 <span className="relative z-10 gradient-text-warm">
-                  no olvida.
+                  a un toque.
                 </span>
                 <svg
                   aria-hidden
@@ -57,57 +69,46 @@ export function Hero() {
             </h1>
 
             <p className="mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-white/65 sm:text-xl">
-              Somos un estudio digital que mezcla{" "}
-              <span className="font-serif italic text-white/90">diseño</span>,{" "}
-              <span className="font-serif italic text-white/90">código</span> y{" "}
-              <span className="font-serif italic text-white/90">estrategia</span>{" "}
-              para construir marcas y experiencias que crecen con tu negocio.
+              ServiTec conecta a clientes con{" "}
+              <span className="font-serif italic text-white/90">técnicos verificados</span>{" "}
+              de electricidad, plomería, limpieza y más. Solicita, recibe{" "}
+              <span className="font-serif italic text-white/90">cotización</span> y paga{" "}
+              <span className="font-serif italic text-white/90">seguro</span> desde la app.
             </p>
 
             <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row">
               <Link
-                href="/contacto"
+                href="#descargar"
                 className="group relative inline-flex h-12 items-center gap-2 overflow-hidden rounded-full bg-white px-6 text-[15px] font-medium text-ink-900 shadow-[0_8px_30px_rgba(255,255,255,0.16)] transition-all hover:-translate-y-px"
               >
-                <span className="relative z-10">Empezar mi proyecto</span>
+                <Smartphone className="relative z-10 h-4 w-4" />
+                <span className="relative z-10">Descargar la app</span>
                 <ArrowUpRight className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 <span className="absolute inset-0 -z-0 translate-y-full bg-gradient-accent transition-transform duration-500 ease-out group-hover:translate-y-0" />
               </Link>
               <Link
-                href="/servicios"
+                href="/tecnicos"
                 className="group inline-flex h-12 items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 text-[15px] font-medium text-white backdrop-blur transition-all hover:border-white/40 hover:bg-white/10"
               >
-                <PlayCircle className="h-4 w-4 text-white/70 transition group-hover:text-white" />
-                Ver servicios
+                Quiero trabajar como técnico
+                <ArrowUpRight className="h-4 w-4 text-white/70 transition group-hover:text-white" />
               </Link>
             </div>
 
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-white/55">
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-white/65">
               <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
-                  {[
-                    "from-pink-400 to-rose-500",
-                    "from-amber-300 to-orange-500",
-                    "from-emerald-300 to-teal-500",
-                    "from-sky-400 to-indigo-500",
-                  ].map((g, i) => (
-                    <span
-                      key={i}
-                      className={`h-7 w-7 rounded-full bg-gradient-to-br ${g} ring-2 ring-ink-900`}
-                    />
-                  ))}
-                </div>
-                <span className="text-white/75">+60 clientes felices</span>
+                <ShieldCheck className="h-4 w-4 text-emerald-300" />
+                <span>Técnicos verificados</span>
               </div>
               <span className="hidden h-1 w-1 rounded-full bg-white/30 sm:block" />
-              <div className="flex items-center gap-1.5">
-                <span className="text-amber-300">★★★★★</span>
-                <span>4.9 / 5 promedio</span>
+              <div className="flex items-center gap-2">
+                <LockKeyhole className="h-4 w-4 text-sky-300" />
+                <span>Pago seguro en la app</span>
               </div>
               <span className="hidden h-1 w-1 rounded-full bg-white/30 sm:block" />
-              <div className="flex items-center gap-1.5">
-                <Sparkles className="h-3.5 w-3.5 text-accent-violet" />
-                <span>8 años de experiencia</span>
+              <div className="flex items-center gap-2">
+                <MapPin className="h-4 w-4 text-accent-violet" />
+                <span>Cobertura local</span>
               </div>
             </div>
           </motion.div>
@@ -118,7 +119,7 @@ export function Hero() {
             transition={{ duration: 1, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="relative mx-auto mt-20 max-w-6xl"
           >
-            <FloatingDashboard />
+            <AppPreview />
           </motion.div>
         </div>
       </Container>
@@ -143,7 +144,16 @@ export function Hero() {
   );
 }
 
-function FloatingDashboard() {
+const heroCategories = [
+  { icon: Zap, label: "Electricidad", color: "from-amber-400 to-orange-500" },
+  { icon: Wrench, label: "Plomería", color: "from-sky-400 to-indigo-500" },
+  { icon: SprayCan, label: "Limpieza", color: "from-emerald-400 to-teal-500" },
+  { icon: Paintbrush, label: "Pintura", color: "from-rose-400 to-pink-500" },
+  { icon: Hammer, label: "Carpintería", color: "from-amber-500 to-rose-500" },
+  { icon: Key, label: "Cerrajería", color: "from-violet-400 to-fuchsia-500" },
+];
+
+function AppPreview() {
   return (
     <div className="relative">
       <div className="absolute -inset-x-6 -top-10 -bottom-6 -z-10 rounded-[2.5rem] bg-gradient-to-b from-white/5 to-transparent blur-2xl" />
@@ -156,7 +166,7 @@ function FloatingDashboard() {
             <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-300" />
             <div className="ml-3 flex h-7 flex-1 items-center justify-center rounded-full bg-white px-3 text-xs text-ink-400 shadow-soft">
-              edgarstudio.mx/clientes/marysol
+              app.servitec.mx · solicitar servicio
             </div>
           </div>
 
@@ -164,59 +174,79 @@ function FloatingDashboard() {
           <div className="grid gap-6 p-6 sm:grid-cols-12 sm:gap-8 sm:p-10">
             <div className="sm:col-span-7">
               <div className="inline-flex items-center gap-2 rounded-full bg-ink-100 px-3 py-1 text-[11px] font-medium uppercase tracking-widest text-ink-600">
-                Caso de estudio · 2026
+                Paso 1 · Elige una categoría
               </div>
               <h3 className="mt-4 text-balance text-2xl font-semibold tracking-tight text-ink-900 sm:text-[2rem] sm:leading-tight">
-                Mar y Sol triplicó sus reservas{" "}
+                ¿Qué necesitas hoy{" "}
                 <span className="font-serif italic font-normal text-ink-500">
-                  en tres meses
+                  en casa?
                 </span>
               </h3>
               <p className="mt-3 text-sm text-ink-500 sm:text-base">
-                Rediseñamos la marca, el sitio y lanzamos una campaña local que convirtió a desconocidos en comensales recurrentes.
+                Selecciona el tipo de servicio. En minutos recibirás cotizaciones de técnicos verificados de tu zona.
               </p>
               <div className="mt-6 grid grid-cols-3 gap-3">
-                {[
-                  { value: "+218%", label: "Reservas" },
-                  { value: "1.1s", label: "LCP" },
-                  { value: "94", label: "Lighthouse" },
-                ].map((m) => (
-                  <div
-                    key={m.label}
-                    className="rounded-2xl border border-ink-100 bg-white p-3 text-left"
-                  >
-                    <div className="bg-gradient-accent bg-clip-text text-lg font-semibold text-transparent sm:text-xl">
-                      {m.value}
+                {heroCategories.map((c) => {
+                  const Icon = c.icon;
+                  return (
+                    <div
+                      key={c.label}
+                      className="flex flex-col items-center gap-2 rounded-2xl border border-ink-100 bg-white p-3 text-center transition hover:-translate-y-0.5 hover:shadow-soft"
+                    >
+                      <span
+                        className={`inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br ${c.color} text-white`}
+                      >
+                        <Icon className="h-4 w-4" strokeWidth={1.8} />
+                      </span>
+                      <span className="text-[11px] font-medium text-ink-700">
+                        {c.label}
+                      </span>
                     </div>
-                    <div className="text-[11px] text-ink-400">{m.label}</div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
             <div className="sm:col-span-5">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-gradient-to-br from-orange-100 via-rose-100 to-violet-100">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-100 via-violet-100 to-rose-100">
                 <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_120%,rgba(255,255,255,0.6),transparent)]" />
-                <svg viewBox="0 0 200 250" className="absolute inset-0 h-full w-full" aria-hidden>
-                  <defs>
-                    <linearGradient id="wave" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.7" />
-                      <stop offset="100%" stopColor="#ec4899" stopOpacity="0.5" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M0 150 Q 50 120 100 150 T 200 150 V 250 H 0 Z" fill="url(#wave)" />
-                  <circle cx="155" cy="60" r="32" fill="#fde68a" />
-                  <path
-                    d="M0 180 Q 50 155 100 180 T 200 180 V 250 H 0 Z"
-                    fill="rgba(244, 114, 182, 0.5)"
-                  />
-                </svg>
-                <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-white/85 p-3 backdrop-blur">
-                  <div className="text-[10px] font-medium uppercase tracking-widest text-ink-500">
-                    Restaurante
+
+                {/* Tarjeta de cotización ejemplo */}
+                <div className="absolute inset-4 flex flex-col gap-3 rounded-2xl bg-white/95 p-4 shadow-card backdrop-blur">
+                  <div className="flex items-center justify-between">
+                    <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-emerald-700">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                      Verificado
+                    </div>
+                    <span className="text-[10px] text-ink-400">Plomería</span>
                   </div>
-                  <div className="text-sm font-semibold text-ink-900">
-                    Mar y Sol · Polanco
+                  <div>
+                    <div className="text-[11px] uppercase tracking-widest text-ink-400">
+                      Cotización
+                    </div>
+                    <div className="font-serif text-lg italic text-ink-900">
+                      Fuga en cocina
+                    </div>
                   </div>
+                  <div className="space-y-1.5 border-t border-ink-100 pt-3 text-[12px] text-ink-600">
+                    <div className="flex justify-between">
+                      <span>Mano de obra</span>
+                      <span className="font-medium text-ink-900">$450</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Materiales</span>
+                      <span className="font-medium text-ink-900">$210</span>
+                    </div>
+                    <div className="flex justify-between border-t border-ink-100 pt-1.5">
+                      <span className="font-semibold text-ink-900">Total</span>
+                      <span className="font-semibold text-ink-900">$660 MXN</span>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    className="mt-auto inline-flex h-9 items-center justify-center rounded-full bg-ink-900 text-[12px] font-medium text-white"
+                  >
+                    Aprobar y agendar
+                  </button>
                 </div>
               </div>
             </div>
@@ -233,11 +263,11 @@ function FloatingDashboard() {
       >
         <div className="flex items-center gap-3">
           <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-accent text-white">
-            <Sparkles className="h-4 w-4" />
+            <ShieldCheck className="h-4 w-4" />
           </div>
           <div>
-            <div className="text-xs uppercase tracking-widest text-ink-400">Conversiones</div>
-            <div className="text-base font-semibold text-ink-900">+218% MoM</div>
+            <div className="text-xs uppercase tracking-widest text-ink-400">Identidad</div>
+            <div className="text-base font-semibold text-ink-900">Validada</div>
           </div>
         </div>
       </motion.div>
@@ -249,8 +279,8 @@ function FloatingDashboard() {
         transition={{ duration: 0.8, delay: 0.8 }}
         className="absolute -right-4 bottom-20 hidden rounded-2xl border border-ink-100 bg-white p-4 shadow-card sm:block lg:-right-10"
       >
-        <div className="text-xs uppercase tracking-widest text-ink-400">Cliente desde</div>
-        <div className="mt-1 font-serif text-2xl italic text-ink-900">2024</div>
+        <div className="text-xs uppercase tracking-widest text-ink-400">Pago seguro</div>
+        <div className="mt-1 font-serif text-lg italic text-ink-900">Stripe</div>
       </motion.div>
     </div>
   );
