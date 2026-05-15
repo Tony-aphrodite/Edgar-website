@@ -2,11 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
-import { process } from "@/lib/data";
+import { clientProcess } from "@/lib/data";
 
 export function Process() {
   return (
-    <section className="relative overflow-hidden py-24 sm:py-32">
+    <section id="como-funciona" className="relative overflow-hidden py-24 sm:py-32">
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-soft" />
       <div className="pointer-events-none absolute inset-0 -z-10 grid-bg opacity-40" />
 
@@ -14,17 +14,17 @@ export function Process() {
         <div className="mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-ink-200/80 bg-white/60 px-3 py-1 text-xs font-medium uppercase tracking-[0.14em] text-ink-500 backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_12px_rgba(99,102,241,0.6)]" />
-            Cómo trabajamos
+            Cómo funciona
           </div>
           <h2 className="mt-5 text-balance text-display-lg text-ink-900">
-            Un proceso{" "}
+            De la solicitud al pago,{" "}
             <span className="font-serif italic font-normal text-ink-500">
-              claro y sin sorpresas
+              en cuatro pasos
             </span>
             .
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-pretty text-ink-500">
-            Cada proyecto sigue cuatro fases bien definidas. Sabes en qué momento estamos, qué entregamos y qué esperamos de ti.
+            Así funciona pedir un técnico desde ServiTec. Cotización clara antes de aprobar, pago seguro dentro de la app y soporte si algo no sale bien.
           </p>
         </div>
 
@@ -55,7 +55,7 @@ export function Process() {
           </svg>
 
           <div className="grid gap-8 lg:grid-cols-4">
-            {process.map((p, i) => {
+            {clientProcess.map((p, i) => {
               const Icon = p.icon;
               return (
                 <motion.div
