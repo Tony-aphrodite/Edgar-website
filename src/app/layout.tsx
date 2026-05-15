@@ -26,38 +26,39 @@ const serif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://edgarstudio.mx"),
+  metadataBase: new URL("https://servitec.mx"),
   title: {
-    default: "Edgar Studio — Diseño web, branding y marketing digital",
-    template: "%s | Edgar Studio",
+    default: "ServiTec — Técnicos verificados a domicilio en México",
+    template: "%s | ServiTec",
   },
   description:
-    "Edgar Studio es una agencia digital que diseña marcas, sitios web y campañas de marketing que convierten. Trabajamos con emprendedores y empresas en México y Latinoamérica.",
+    "ServiTec conecta a clientes con técnicos verificados de electricidad, plomería, limpieza, pintura, carpintería, cerrajería, aire acondicionado, electrodomésticos y jardinería. Solicita, recibe cotización y paga seguro desde la app.",
   keywords: [
-    "agencia digital",
-    "diseño web",
-    "branding",
-    "marketing digital",
-    "SEO",
+    "servicios a domicilio",
+    "técnicos verificados",
+    "electricista a domicilio",
+    "plomero a domicilio",
+    "limpieza a domicilio",
+    "reparaciones del hogar",
     "México",
-    "Edgar Studio",
+    "ServiTec",
   ],
-  authors: [{ name: "Edgar Studio" }],
-  creator: "Edgar Studio",
+  authors: [{ name: "ServiTec" }],
+  creator: "ServiTec",
   openGraph: {
     type: "website",
     locale: "es_MX",
-    url: "https://edgarstudio.mx",
-    siteName: "Edgar Studio",
-    title: "Edgar Studio — Diseño web, branding y marketing digital",
+    url: "https://servitec.mx",
+    siteName: "ServiTec",
+    title: "ServiTec — Técnicos verificados a domicilio",
     description:
-      "Diseñamos marcas y experiencias digitales que convierten. Agencia digital en México.",
+      "Solicita técnicos verificados de confianza para tu hogar. Cotización clara y pago seguro en la app.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Edgar Studio — Agencia digital",
+    title: "ServiTec — Técnicos verificados a domicilio",
     description:
-      "Diseñamos marcas y experiencias digitales que convierten.",
+      "Solicita técnicos verificados de confianza para tu hogar. Pago seguro en la app.",
   },
   robots: {
     index: true,
