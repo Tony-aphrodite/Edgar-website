@@ -76,7 +76,7 @@ export function Navbar() {
                   : "bg-ink-900 text-white hover:bg-ink-800 hover:shadow-glow",
               )}
             >
-              Empezar proyecto
+              Descargar la app
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </div>
@@ -118,7 +118,7 @@ export function Navbar() {
                   onClick={() => setOpen(false)}
                   className="mt-2 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-ink-900 px-5 text-sm font-medium text-white"
                 >
-                  Empezar proyecto
+                  Descargar la app
                   <ArrowUpRight className="h-4 w-4" />
                 </Link>
               </div>
