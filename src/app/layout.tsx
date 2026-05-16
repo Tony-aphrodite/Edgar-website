@@ -26,7 +26,7 @@ const serif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://servitec.mx"),
+  metadataBase: new URL("https://serviciosintegralesapp.com"),
   title: {
     default: "ServiTec — Técnicos verificados a domicilio en México",
     template: "%s | ServiTec",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_MX",
-    url: "https://servitec.mx",
+    url: "https://serviciosintegralesapp.com",
     siteName: "ServiTec",
     title: "ServiTec — Técnicos verificados a domicilio",
     description:

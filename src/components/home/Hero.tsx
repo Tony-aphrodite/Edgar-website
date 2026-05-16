@@ -166,7 +166,7 @@ function AppPreview() {
             <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-300" />
             <div className="ml-3 flex h-7 flex-1 items-center justify-center rounded-full bg-white px-3 text-xs text-ink-400 shadow-soft">
-              app.servitec.mx · solicitar servicio
+              serviciosintegralesapp.com · solicitar servicio
             </div>
           </div>
 

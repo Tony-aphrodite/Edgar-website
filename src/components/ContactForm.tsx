@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Send, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { site } from "@/lib/site";
 
 const inputClasses =
   "block w-full rounded-xl border border-ink-200 bg-white px-4 py-3 text-sm text-ink-900 shadow-soft transition placeholder:text-ink-400 focus:border-ink-900 focus:outline-none focus:ring-2 focus:ring-accent/30";
@@ -50,7 +51,7 @@ export function ContactForm() {
           ¡Mensaje recibido!
         </h3>
         <p className="mt-2 max-w-md text-pretty text-sm text-ink-500 mx-auto">
-          Gracias por escribirnos. Te respondemos en menos de 24 horas hábiles desde hola@servitec.mx.
+          Gracias por escribirnos. Te respondemos en menos de 24 horas hábiles desde {site.email}.
         </p>
       </div>
     );

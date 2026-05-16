@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/PageHeader";
 import { CTA } from "@/components/home/CTA";
 import { services } from "@/lib/data";
+import { site } from "@/lib/site";
 import { Check } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -82,10 +83,10 @@ export default function ServiciosPage() {
           <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-ink-500">
             ¿No ves la categoría que buscas? Escríbenos a{" "}
             <a
-              href="mailto:hola@servitec.mx"
+              href={`mailto:${site.email}`}
               className="font-medium text-ink-900 underline-offset-4 hover:underline"
             >
-              hola@servitec.mx
+              {site.email}
             </a>{" "}
             y evaluamos sumarla.
           </p>

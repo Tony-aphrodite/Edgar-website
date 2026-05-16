@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/Logo";
 import { site } from "@/lib/site";
-import { Mail, Phone, MapPin, Instagram, Facebook, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 const columns = [
   {
@@ -68,35 +68,6 @@ export function Footer() {
               </li>
             </ul>
 
-            <div className="mt-8 flex items-center gap-2">
-              <a
-                href={site.social.instagram}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink-200 bg-white text-ink-600 transition hover:border-ink-900 hover:text-ink-900"
-              >
-                <Instagram className="h-4 w-4" />
-              </a>
-              <a
-                href={site.social.facebook}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Facebook"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink-200 bg-white text-ink-600 transition hover:border-ink-900 hover:text-ink-900"
-              >
-                <Facebook className="h-4 w-4" />
-              </a>
-              <a
-                href={site.social.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="LinkedIn"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink-200 bg-white text-ink-600 transition hover:border-ink-900 hover:text-ink-900"
-              >
-                <Linkedin className="h-4 w-4" />
-              </a>
-            </div>
           </div>
 
           <div className="grid gap-8 sm:grid-cols-3 lg:col-span-7">
