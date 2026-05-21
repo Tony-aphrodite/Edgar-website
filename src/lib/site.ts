@@ -13,8 +13,8 @@ export const site = {
   supportEmail: "servitec@serviciosintegralesapp.com",
   techniciansEmail: "servitec@serviciosintegralesapp.com",
   privacyEmail: "servitec@serviciosintegralesapp.com",
-  phone: "+52 55 0000 0000", // PENDIENTE: teléfono de contacto definitivo
-  whatsapp: "+52 55 0000 0000", // PENDIENTE: WhatsApp de atención
+  phone: "+52 833 154 5487",
+  whatsapp: "+52 833 154 5487",
   address: {
     street: "Calle Benito Juárez 801, Col. Barandillas",
     city: "Tampico",
