@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Send, CheckCircle2 } from "lucide-react";
+import { Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { site } from "@/lib/site";
 
@@ -32,13 +32,46 @@ const categories = [
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 800));
-    setLoading(false);
-    setSubmitted(true);
+    setErrorMessage(null);
+
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const payload = {
+      name: String(fd.get("name") ?? ""),
+      email: String(fd.get("email") ?? ""),
+      phone: String(fd.get("phone") ?? ""),
+      city: String(fd.get("city") ?? ""),
+      audience: String(fd.get("audience") ?? ""),
+      category: String(fd.get("category") ?? ""),
+      message: String(fd.get("message") ?? ""),
+      website: String(fd.get("website") ?? ""), // honeypot
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) {
+        const data = (await res.json().catch(() => ({}))) as { error?: string };
+        throw new Error(data.error ?? `HTTP ${res.status}`);
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setErrorMessage(
+        err instanceof Error
+          ? err.message
+          : "No pudimos enviar tu mensaje. Intenta más tarde.",
+      );
+    } finally {
+      setLoading(false);
+    }
   }
 
   if (submitted) {
@@ -150,6 +183,14 @@ export function ContactForm() {
         />
       </Field>
 
+      {/* Honeypot — hidden from real users, picked up by naive bots. */}
+      <div aria-hidden className="hidden" tabIndex={-1}>
+        <label>
+          Sitio web
+          <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+        </label>
+      </div>
+
       <label className="flex items-start gap-3 text-sm text-ink-500">
         <input
           type="checkbox"
@@ -164,6 +205,13 @@ export function ContactForm() {
           y autorizo el contacto sobre mi solicitud.
         </span>
       </label>
+
+      {errorMessage ? (
+        <div className="flex items-start gap-2 rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-800">
+          <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+          <span>{errorMessage}</span>
+        </div>
+      ) : null}
 
       <button
         type="submit"

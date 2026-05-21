@@ -34,3 +34,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Environment
+.env
+.env.local
+.env*.local
+
+# Personal fiscal docs (never commit)
+Csf_*.pdf

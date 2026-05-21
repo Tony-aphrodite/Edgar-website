@@ -103,7 +103,7 @@ export default function TecnicosPage() {
                 </p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <Link
-                    href="/contacto"
+                    href="/tecnicos/registrarse"
                     className="group inline-flex h-12 items-center gap-2 rounded-full bg-white px-6 text-[15px] font-medium text-ink-900 transition hover:bg-white/90"
                   >
                     <Smartphone className="h-4 w-4" />

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
+import { useSession } from "next-auth/react";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/Logo";
 import { nav } from "@/lib/site";
@@ -15,6 +16,10 @@ export function Navbar() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const overDark = isHome && !scrolled;
+  const { status } = useSession();
+  const authed = status === "authenticated";
+  const ctaHref = authed ? "/servicios/solicitar" : "/iniciar-sesion?callbackUrl=/servicios/solicitar";
+  const ctaLabel = "Solicitar servicio";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -66,9 +71,34 @@ export function Navbar() {
             })}
           </div>
 
-          <div className="hidden md:flex">
+          <div className="hidden items-center gap-2 md:flex">
+            {authed ? (
+              <Link
+                href="/cuenta"
+                className={cn(
+                  "rounded-full px-3.5 py-2 text-sm font-medium transition",
+                  overDark
+                    ? "text-white/85 hover:bg-white/10 hover:text-white"
+                    : "text-ink-700 hover:bg-ink-100 hover:text-ink-900",
+                )}
+              >
+                Mi cuenta
+              </Link>
+            ) : (
+              <Link
+                href="/iniciar-sesion"
+                className={cn(
+                  "rounded-full px-3.5 py-2 text-sm font-medium transition",
+                  overDark
+                    ? "text-white/85 hover:bg-white/10 hover:text-white"
+                    : "text-ink-700 hover:bg-ink-100 hover:text-ink-900",
+                )}
+              >
+                Iniciar sesión
+              </Link>
+            )}
             <Link
-              href="/contacto"
+              href={ctaHref}
               className={cn(
                 "group inline-flex h-10 items-center gap-1.5 rounded-full px-4 text-sm font-medium shadow-soft transition-all",
                 overDark
@@ -76,7 +106,7 @@ export function Navbar() {
                   : "bg-ink-900 text-white hover:bg-ink-800 hover:shadow-glow",
               )}
             >
-              Descargar la app
+              {ctaLabel}
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </div>
@@ -113,12 +143,29 @@ export function Navbar() {
                     {item.label}
                   </Link>
                 ))}
+                {authed ? (
+                  <Link
+                    href="/cuenta"
+                    onClick={() => setOpen(false)}
+                    className="rounded-xl px-4 py-3 text-base font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-900"
+                  >
+                    Mi cuenta
+                  </Link>
+                ) : (
+                  <Link
+                    href="/iniciar-sesion"
+                    onClick={() => setOpen(false)}
+                    className="rounded-xl px-4 py-3 text-base font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-900"
+                  >
+                    Iniciar sesión
+                  </Link>
+                )}
                 <Link
-                  href="/contacto"
+                  href={ctaHref}
                   onClick={() => setOpen(false)}
                   className="mt-2 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-ink-900 px-5 text-sm font-medium text-white"
                 >
-                  Descargar la app
+                  {ctaLabel}
                   <ArrowUpRight className="h-4 w-4" />
                 </Link>
               </div>
